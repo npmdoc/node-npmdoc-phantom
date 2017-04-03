@@ -1,0 +1,594 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/amir20/phantomjs-node"
+
+    >phantom (v4.0.1)</a>
+</h1>
+<h4>PhantomJS integration module for NodeJS</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.phantom">module phantom</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.phantom.create">
+            function <span class="apidocSignatureSpan">phantom.</span>create
+            <span class="apidocSignatureSpan">(args, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>phantom</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">phantom.</span>command</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">phantom.</span>default</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">phantom.</span>out_object</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">phantom.</span>page</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.phantom.command">module phantom.command</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.phantom.command.default">
+            function <span class="apidocSignatureSpan">phantom.command.</span>default
+            <span class="apidocSignatureSpan">(target, name, params = [])</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.phantom.default">module phantom.default</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.phantom.default.create">
+            function <span class="apidocSignatureSpan">phantom.default.</span>create
+            <span class="apidocSignatureSpan">(args, config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.phantom.out_object">module phantom.out_object</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.phantom.out_object.default">
+            function <span class="apidocSignatureSpan">phantom.out_object.</span>default
+            <span class="apidocSignatureSpan">(phantom)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.phantom.page">module phantom.page</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.phantom.page.default">
+            function <span class="apidocSignatureSpan">phantom.page.</span>default
+            <span class="apidocSignatureSpan">(phantom, pageId)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.phantom.phantom">module phantom.phantom</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.phantom.phantom.default">
+            function <span class="apidocSignatureSpan">phantom.phantom.</span>default
+            <span class="apidocSignatureSpan">(if unset or default)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.phantom" id="apidoc.module.phantom">module phantom</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.phantom.create" id="apidoc.element.phantom.create">
+        function <span class="apidocSignatureSpan">phantom.</span>create
+        <span class="apidocSignatureSpan">(args, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function create(args, config) {
+  return new Promise(resolve =&#x3e; resolve(new _phantom2.default(args, config)));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+## Super easy to use
+```js
+const phantom = require(&#x27;phantom&#x27;);
+
+(async function() {
+const instance = await phantom.<span class="apidocCodeKeywordSpan">create</span>();
+const page = await instance.createPage();
+await page.on(&#x22;onResourceRequested&#x22;, function(requestData) {
+    console.info(&#x27;Requesting&#x27;, requestData.url)
+});
+
+const status = await page.open(&#x27;https://stackoverflow.com/&#x27;);
+console.log(status);
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.phantom.command" id="apidoc.module.phantom.command">module phantom.command</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.phantom.command.default" id="apidoc.element.phantom.command.default">
+        function <span class="apidocSignatureSpan">phantom.command.</span>default
+        <span class="apidocSignatureSpan">(target, name, params = [])</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Command {
+
+    constructor(target, name, params = []) {
+        this.id = NEXT_ID++;
+        this.target = target;
+        this.name = name;
+        this.params = params;
+        this.deferred = null;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Returns a new instance of Promise which resolves to a {@link Page}.
+ * @returns {Promise.&#x3c;Page&#x3e;}
+ */
+createPage() {
+    const logger = this.logger;
+    return this.execute(&#x27;phantom&#x27;, &#x27;createPage&#x27;).then(response =&#x3e; {
+        let page = new _page2.<span class="apidocCodeKeywordSpan">default</span>(this, response.pageId);
+        if (typeof Proxy === &#x27;function&#x27;) {
+            page = new Proxy(page, {
+                set: function (target, prop) {
+                    logger.warn(`Using page.${prop} = ...; is not supported. Use page.property(&#x27;${prop}&#x27;, ...) ` + &#x27
+;instead. See the README file for more examples of page#property.&#x27;);
+                    return false;
+                }
+            });
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.phantom.default" id="apidoc.module.phantom.default">module phantom.default</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.phantom.default.create" id="apidoc.element.phantom.default.create">
+        function <span class="apidocSignatureSpan">phantom.default.</span>create
+        <span class="apidocSignatureSpan">(args, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function create(args, config) {
+  return new Promise(resolve =&#x3e; resolve(new _phantom2.default(args, config)));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+## Super easy to use
+```js
+const phantom = require(&#x27;phantom&#x27;);
+
+(async function() {
+const instance = await phantom.<span class="apidocCodeKeywordSpan">create</span>();
+const page = await instance.createPage();
+await page.on(&#x22;onResourceRequested&#x22;, function(requestData) {
+    console.info(&#x27;Requesting&#x27;, requestData.url)
+});
+
+const status = await page.open(&#x27;https://stackoverflow.com/&#x27;);
+console.log(status);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.phantom.out_object" id="apidoc.module.phantom.out_object">module phantom.out_object</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.phantom.out_object.default" id="apidoc.element.phantom.out_object.default">
+        function <span class="apidocSignatureSpan">phantom.out_object.</span>default
+        <span class="apidocSignatureSpan">(phantom)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class OutObject {
+
+    constructor(phantom) {
+        this._phantom = phantom;
+        this.target = &#x27;OutObject$&#x27; + _crypto2.default.randomBytes(16).toString(&#x27;hex&#x27;);
+    }
+
+    property(name) {
+        return this._phantom.execute(this.target, &#x27;property&#x27;, [name]);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Returns a new instance of Promise which resolves to a {@link Page}.
+ * @returns {Promise.&#x3c;Page&#x3e;}
+ */
+createPage() {
+    const logger = this.logger;
+    return this.execute(&#x27;phantom&#x27;, &#x27;createPage&#x27;).then(response =&#x3e; {
+        let page = new _page2.<span class="apidocCodeKeywordSpan">default</span>(this, response.pageId);
+        if (typeof Proxy === &#x27;function&#x27;) {
+            page = new Proxy(page, {
+                set: function (target, prop) {
+                    logger.warn(`Using page.${prop} = ...; is not supported. Use page.property(&#x27;${prop}&#x27;, ...) ` + &#x27
+;instead. See the README file for more examples of page#property.&#x27;);
+                    return false;
+                }
+            });
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.phantom.page" id="apidoc.module.phantom.page">module phantom.page</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.phantom.page.default" id="apidoc.element.phantom.page.default">
+        function <span class="apidocSignatureSpan">phantom.page.</span>default
+        <span class="apidocSignatureSpan">(phantom, pageId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Page {
+
+    constructor(phantom, pageId) {
+        this.target = &#x27;page$&#x27; + pageId;
+        this.phantom = phantom;
+    }
+
+<span class="apidocCodeCommentSpan">    /**
+     * Add an event listener to the page on phantom
+     *
+     * @param event The name of the event (Ej. onResourceLoaded)
+     * @param [runOnPhantom=false] Indicate if the event must run on the phantom runtime or not
+     * @param listener The event listener. When runOnPhantom=true, this listener code would be run on phantom, and thus,
+     * all the closure info wont work
+     * @returns {*}
+     */
+</span>    on(event, runOnPhantom, listener) {
+        let mustRunOnPhantom;
+        let callback;
+        let args;
+
+        if (typeof runOnPhantom === &#x27;function&#x27;) {
+            args = [].slice.call(arguments, 2);
+            mustRunOnPhantom = false;
+            callback = runOnPhantom.bind(this);
+        } else {
+            args = [].slice.call(arguments, 3);
+            mustRunOnPhantom = runOnPhantom;
+            callback = mustRunOnPhantom ? listener : listener.bind(this);
+        }
+
+        return this.phantom.on(event, this.target, mustRunOnPhantom, callback, args);
+    }
+
+    /**
+     * Removes an event listener
+     *
+     * @param event the event name
+     * @returns {*}
+     */
+    off(event) {
+        return this.phantom.off(event, this.target);
+    }
+
+    /**
+     * Invokes an asynchronous method
+     */
+    invokeAsyncMethod() {
+        return this.phantom.execute(this.target, &#x27;invokeAsyncMethod&#x27;, [].slice.call(arguments));
+    }
+
+    /**
+     * Invokes a method
+     */
+    invokeMethod() {
+        return this.phantom.execute(this.target, &#x27;invokeMethod&#x27;, [].slice.call(arguments));
+    }
+
+    /**
+     * Defines a method
+     */
+    defineMethod(name, definition) {
+        return this.phantom.execute(this.target, &#x27;defineMethod&#x27;, [name, definition]);
+    }
+
+    /**
+     * Gets or sets a property
+     */
+    property() {
+        return this.phantom.execute(this.target, &#x27;property&#x27;, [].slice.call(arguments));
+    }
+
+    /**
+     * Gets or sets a setting
+     */
+    setting() {
+        return this.phantom.execute(this.target, &#x27;setting&#x27;, [].slice.call(arguments));
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Returns a new instance of Promise which resolves to a {@link Page}.
+ * @returns {Promise.&#x3c;Page&#x3e;}
+ */
+createPage() {
+    const logger = this.logger;
+    return this.execute(&#x27;phantom&#x27;, &#x27;createPage&#x27;).then(response =&#x3e; {
+        let page = new _page2.<span class="apidocCodeKeywordSpan">default</span>(this, response.pageId);
+        if (typeof Proxy === &#x27;function&#x27;) {
+            page = new Proxy(page, {
+                set: function (target, prop) {
+                    logger.warn(`Using page.${prop} = ...; is not supported. Use page.property(&#x27;${prop}&#x27;, ...) ` + &#x27
+;instead. See the README file for more examples of page#property.&#x27;);
+                    return false;
+                }
+            });
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.phantom.phantom" id="apidoc.module.phantom.phantom">module phantom.phantom</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.phantom.phantom.default" id="apidoc.element.phantom.phantom.default">
+        function <span class="apidocSignatureSpan">phantom.phantom.</span>default
+        <span class="apidocSignatureSpan">(if unset or default)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Phantom {
+
+<span class="apidocCodeCommentSpan">    /**
+     * Creates a new instance of Phantom
+     *
+     * @param args command args to pass to phantom process
+     * @param [phantomPath] path to phantomjs executable
+     * @param [logger] object containing functions used for logging
+     * @param [logLevel] log level to apply on the logger (if unset or default)
+     */
+</span>    constructor(args = [], { phantomPath = _phantomjsPrebuilt2.default.path, logger = defaultLogger, logLevel = defaultLogLevel } = {
+        phantomPath: _phantomjsPrebuilt2.default.path,
+        logger: defaultLogger,
+        logLevel: defaultLogLevel
+    }) {
+        if (!Array.isArray(args)) {
+            throw new Error(&#x27;Unexpected type of parameters. Expecting args to be array.&#x27;);
+        }
+
+        if (typeof phantomPath !== &#x27;string&#x27;) {
+            throw new Error(&#x27;PhantomJS binary was not found. &#x27; + &#x27;This generally means something went wrong when installing phantomjs
+-prebuilt. Exiting.&#x27;);
+        }
+
+        if (typeof logger !== &#x27;object&#x27;) {
+            throw new Error(&#x27;logger must be ba valid object.&#x27;);
+        }
+
+        logger.debug = logger.debug || (() =&#x3e; undefined);
+        logger.info = logger.info || (() =&#x3e; undefined);
+        logger.warn = logger.warn || (() =&#x3e; undefined);
+        logger.error = logger.error || (() =&#x3e; undefined);
+
+        this.logger = logger;
+
+        if (logLevel !== defaultLogLevel) {
+            this.logger = createLogger();
+            this.logger.transports.console.level = logLevel;
+        }
+
+        const pathToShim = _path2.default.normalize(__dirname + &#x27;/shim/index.js&#x27;);
+        this.logger.debug(`Starting ${phantomPath} ${args.concat([pathToShim]).join(&#x27; &#x27;)}`);
+
+        this.process = (0, _child_process.spawn)(phantomPath, args.concat([pathToShim]), { env: process.env });
+        this.process.stdin.setDefaultEncoding(&#x27;utf-8&#x27;);
+
+        this.commands = new Map();
+        this.events = new Map();
+
+        this.process.stdout.pipe((0, _split2.default)()).on(&#x27;data&#x27;, data =&#x3e; {
+            const message = data.toString(&#x27;utf8&#x27;);
+            if (message[0] === &#x27;&#x3e;&#x27;) {
+                // Server end has finished NOOP, lets allow NOOP again..
+                if (message === &#x27;&#x3e;&#x27; + NOOP) {
+                    this.logger.debug(&#x27;Received NOOP command.&#x27;);
+                    this.isNoOpInProgress = false;
+                    return;
+                }
+                const json = message.substr(1);
+                this.logger.debug(&#x27;Parsing: %s&#x27;, json);
+
+                const parsedJson = JSON.parse(json);
+                const command = this.commands.get(parsedJson.id);
+
+                if (command != null) {
+                    const deferred = command.deferred;
+
+                    if (deferred != null) {
+                        if (parsedJson.error === undefined) {
+                            deferred.resolve(parsedJson.response);
+                        } else {
+                            deferred.reject(new Error(parsedJson.error));
+                        }
+                    } else {
+                        this.logger.error(&#x27;deferred object not found for command.id: &#x27; + parsedJson.id);
+                    }
+
+                    this.commands.delete(command.id);
+                } else {
+                    this.logger.error(&#x27;command not found for command.id: &#x27; + parsedJson.id);
+                }
+            } else if (message.indexOf(&#x27;&#x3c;event&#x3e;&#x27;) === 0) {
+                const json = message.substr(7);
+                this.logger.debug(&#x27;Parsing: %s&#x27;, json);
+                const event = JSON.parse(json);
+
+                const emitter = this.events.get(event.target);
+                if (emitter) {
+                    emitter.emit.apply(emitter, [event.type].concat(event.args));
+                }
+            } else if (message &#x26;&#x26; message.length &#x3e; 0) {
+                this.logger.info(message);
+            }
+        });
+
+        this.process.stderr.on(&#x27;data&#x27;, data =&#x3e; this.logger.error(data.toString(&#x27;utf8&#x27;)));
+        this.process.on(&#x27;exit&#x27;, code =&#x3e; {
+            this.logger.debug(`Child exited with code {${code}}`);
+            this._rejectAllComman ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Returns a new instance of Promise which resolves to a {@link Page}.
+ * @returns {Promise.&#x3c;Page&#x3e;}
+ */
+createPage() {
+    const logger = this.logger;
+    return this.execute(&#x27;phantom&#x27;, &#x27;createPage&#x27;).then(response =&#x3e; {
+        let page = new _page2.<span class="apidocCodeKeywordSpan">default</span>(this, response.pageId);
+        if (typeof Proxy === &#x27;function&#x27;) {
+            page = new Proxy(page, {
+                set: function (target, prop) {
+                    logger.warn(`Using page.${prop} = ...; is not supported. Use page.property(&#x27;${prop}&#x27;, ...) ` + &#x27
+;instead. See the README file for more examples of page#property.&#x27;);
+                    return false;
+                }
+            });
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
