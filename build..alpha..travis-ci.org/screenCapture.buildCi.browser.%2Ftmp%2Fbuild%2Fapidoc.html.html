@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/amir20/phantomjs-node"
-
-    >phantom (v4.0.2)</a>
+    <a href="https://github.com/amir20/phantomjs-node">phantom (v4.0.2)</a>
 </h1>
 <h4>PhantomJS integration module for NodeJS</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.phantom">module phantom</a><ol>
 
@@ -124,23 +117,23 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function create(args, config) {
-  return new Promise(resolve =&#x3e; resolve(new _phantom2.default(args, config)));
+  return new Promise(resolve =&gt; resolve(new _phantom2.default(args, config)));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 
 ## Super easy to use
 ```js
-const phantom = require(&#x27;phantom&#x27;);
+const phantom = require('phantom');
 
 (async function() {
 const instance = await phantom.<span class="apidocCodeKeywordSpan">create</span>();
 const page = await instance.createPage();
-await page.on(&#x22;onResourceRequested&#x22;, function(requestData) {
-    console.info(&#x27;Requesting&#x27;, requestData.url)
+await page.on("onResourceRequested", function(requestData) {
+    console.info('Requesting', requestData.url)
 });
 
-const status = await page.open(&#x27;https://stackoverflow.com/&#x27;);
+const status = await page.open('https://stackoverflow.com/');
 console.log(status);
 ...</pre></li>
     </ul>
@@ -191,23 +184,23 @@ console.log(status);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function create(args, config) {
-  return new Promise(resolve =&#x3e; resolve(new _phantom2.default(args, config)));
+  return new Promise(resolve =&gt; resolve(new _phantom2.default(args, config)));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 
 ## Super easy to use
 ```js
-const phantom = require(&#x27;phantom&#x27;);
+const phantom = require('phantom');
 
 (async function() {
 const instance = await phantom.<span class="apidocCodeKeywordSpan">create</span>();
 const page = await instance.createPage();
-await page.on(&#x22;onResourceRequested&#x22;, function(requestData) {
-    console.info(&#x27;Requesting&#x27;, requestData.url)
+await page.on("onResourceRequested", function(requestData) {
+    console.info('Requesting', requestData.url)
 });
 
-const status = await page.open(&#x27;https://stackoverflow.com/&#x27;);
+const status = await page.open('https://stackoverflow.com/');
 console.log(status);
 ...</pre></li>
     </ul>
@@ -221,3 +214,4 @@ console.log(status);
     ]
 </div>
 </div>
+</body></html>
