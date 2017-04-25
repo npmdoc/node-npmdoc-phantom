@@ -1,7 +1,12 @@
-# api documentation for  [phantom (v4.0.2)](https://github.com/amir20/phantomjs-node)  [![npm package](https://img.shields.io/npm/v/npmdoc-phantom.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-phantom) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-phantom.svg)](https://travis-ci.org/npmdoc/node-npmdoc-phantom)
+# npmdoc-phantom
+
+#### basic api documentation for  [phantom (v4.0.2)](https://github.com/amir20/phantomjs-node)  [![npm package](https://img.shields.io/npm/v/npmdoc-phantom.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-phantom) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-phantom.svg)](https://travis-ci.org/npmdoc/node-npmdoc-phantom)
+
 #### PhantomJS integration module for NodeJS
 
 [![NPM](https://nodei.co/npm/phantom.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/phantom)
+
+- [https://npmdoc.github.io/node-npmdoc-phantom/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-phantom/build/apidoc.html)
 
 [![apidoc](https://npmdoc.github.io/node-npmdoc-phantom/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-phantom/build/apidoc.html)
 
@@ -101,110 +106,9 @@
         "pretest": "gulp build:test",
         "test": "npm run lint && jest"
     },
-    "version": "4.0.2"
+    "version": "4.0.2",
+    "bin": {}
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module phantom](#apidoc.module.phantom)
-1.  [function <span class="apidocSignatureSpan">phantom.</span>create (args, config)](#apidoc.element.phantom.create)
-1.  object <span class="apidocSignatureSpan">phantom.</span>command
-1.  object <span class="apidocSignatureSpan">phantom.</span>default
-
-#### [module phantom.command](#apidoc.module.phantom.command)
-1.  [function <span class="apidocSignatureSpan">phantom.command.</span>default (target, name, params = [])](#apidoc.element.phantom.command.default)
-
-#### [module phantom.default](#apidoc.module.phantom.default)
-1.  [function <span class="apidocSignatureSpan">phantom.default.</span>create (args, config)](#apidoc.element.phantom.default.create)
-
-
-
-# <a name="apidoc.module.phantom"></a>[module phantom](#apidoc.module.phantom)
-
-#### <a name="apidoc.element.phantom.create"></a>[function <span class="apidocSignatureSpan">phantom.</span>create (args, config)](#apidoc.element.phantom.create)
-- description and source-code
-```javascript
-function create(args, config) {
-  return new Promise(resolve => resolve(new _phantom2.default(args, config)));
-}
-```
-- example usage
-```shell
-...
-
-
-## Super easy to use
-'''js
-const phantom = require('phantom');
-
-(async function() {
-const instance = await phantom.create();
-const page = await instance.createPage();
-await page.on("onResourceRequested", function(requestData) {
-    console.info('Requesting', requestData.url)
-});
-
-const status = await page.open('https://stackoverflow.com/');
-console.log(status);
-...
-```
-
-
-
-# <a name="apidoc.module.phantom.command"></a>[module phantom.command](#apidoc.module.phantom.command)
-
-#### <a name="apidoc.element.phantom.command.default"></a>[function <span class="apidocSignatureSpan">phantom.command.</span>default (target, name, params = [])](#apidoc.element.phantom.command.default)
-- description and source-code
-```javascript
-class Command {
-
-    constructor(target, name, params = []) {
-        this.id = NEXT_ID++;
-        this.target = target;
-        this.name = name;
-        this.params = params;
-        this.deferred = null;
-    }
-}
-```
-- example usage
-```shell
-n/a
-```
-
-
-
-# <a name="apidoc.module.phantom.default"></a>[module phantom.default](#apidoc.module.phantom.default)
-
-#### <a name="apidoc.element.phantom.default.create"></a>[function <span class="apidocSignatureSpan">phantom.default.</span>create (args, config)](#apidoc.element.phantom.default.create)
-- description and source-code
-```javascript
-function create(args, config) {
-  return new Promise(resolve => resolve(new _phantom2.default(args, config)));
-}
-```
-- example usage
-```shell
-...
-
-
-## Super easy to use
-'''js
-const phantom = require('phantom');
-
-(async function() {
-const instance = await phantom.create();
-const page = await instance.createPage();
-await page.on("onResourceRequested", function(requestData) {
-    console.info('Requesting', requestData.url)
-});
-
-const status = await page.open('https://stackoverflow.com/');
-console.log(status);
-...
 ```
 
 
